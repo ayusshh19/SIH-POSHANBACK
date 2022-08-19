@@ -1,0 +1,60 @@
+{% extends "schools/base.html" %}
+
+{% block content %}
+
+
+
+
+<div class="container">
+
+  <p>
+    <a name="" id="" class="btn btn-primary" href="{% url 'schools:update_class' pk=class.id %}" role="button">
+      UPdate Class
+    </a>
+  </p>
+  <div class="card shadow-lg">
+    <div class="card-body">
+      <div class="table-responsive" style="text-align: center;">
+        <table class="table">
+          <thead>
+            <tr style="text-align: center;">
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Gr no.</th>
+              <th>DOB</th>
+              <th>Gender</th>
+              <th>BMI</th>
+              <th>Edit</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Start: Duplicate Table Row -->
+            {% for student in student_list %}
+            <tr>
+              <td>{{student.first_name}}</td>
+              <td>{{student.last_name}}</td>
+              <td>{{student.gr_no}}</td>
+              <td>{{student.dob}}</td>
+              <td>{{student.gender}}</td>
+              <td style="color: red;">6.1</td>
+              <td style="text-align: center;">
+                <a class="btn btn-info btn-icon-split" role="button" href="#">
+                  <span class="text-white-50 icon">
+                    <i class="far fa-edit"></i>
+                  </span>
+                  <span class="text-white text">Edit</span>
+                </a>
+              </td>
+            </tr>
+            {% endfor %}
+            <!-- End: Duplicate Table Row -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+{% endblock content %}
